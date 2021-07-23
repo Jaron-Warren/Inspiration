@@ -1,9 +1,14 @@
 import { ProxyState } from "../AppState.js";
 
 class ImageService {
-  addValue() {
-    ProxyState.values = [...ProxyState.values, new Value({ title: Math.random() })]
+  getBackground() {
+    ProxyState.image = null
   }
+
+  getQuote() {
+    ProxyState.quote = null
+  }
+
 }
 
 export const imageService = new ImageService();

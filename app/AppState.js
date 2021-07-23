@@ -3,7 +3,8 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   /**@type image */
-  image = null
+  image = "../assets/img/winxp.jpg"
+  quote = 'you\'re a cool person!'
 }
 
 export const ProxyState = new Proxy(new AppState(), {
