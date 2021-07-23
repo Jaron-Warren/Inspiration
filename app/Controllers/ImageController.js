@@ -7,35 +7,26 @@ function _draw() {
   _drawQuote()
 }
 
-function _drawBackground() {
-  let values = ProxyState.values;
-  let template = ''
-  values.forEach(v => template += v.Template)
-  document.getElementById("app").innerHTML = /*html*/`
-  <button className="btn btn-info" onclick="app.valuesController.addValue()">Add Value</button>  
-  <div className="card-columns values">
-      ${template}
-  </div>
-  `
+async function _drawBackground() {
+  try {
+    await imageService.getBackground()
+    document.getElementById("body").style.backgroundImage = `url(${ProxyState.image.imgUrl || "../assets/img/winxp.jpg"})`
+    // console.log(ProxyState.image.url)
+  } catch (error) {
+    console.error('problem getting background ' + error)
+  }
+  // console.log(ProxyState.image)
 }
 
 function _drawQuote() {
-  let values = ProxyState.values;
-  let template = ''
-  values.forEach(v => template += v.Template)
-  document.getElementById("app").innerHTML = /*html*/`
-  <button className="btn btn-info" onclick="app.valuesController.addValue()">Add Value</button>  
-  <div className="card-columns values">
-      ${template}
-  </div>
-  `
+  document.getElementById("quote").innerText = ProxyState.quote
 }
 
 //Public
 export default class ImageController {
   constructor() {
-    ProxyState.on("image", _drawBackground);
-    ProxyState.on("quote", _drawQuote);
+    // ProxyState.on("image", _drawBackground);
+    // ProxyState.on("quote", _drawQuote);
     _draw()
   }
 

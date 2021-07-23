@@ -1,8 +1,9 @@
 import ImageController from "./Controllers/ImageController.js";
+import ListController from "./Controllers/ListController.js"
 
 class App {
-
-  imgaeController = new ImageController()
+  listController = new ListController()
+  imageController = new ImageController()
 }
 
 window["app"] = new App();

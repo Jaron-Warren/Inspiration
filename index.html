@@ -13,14 +13,67 @@
     <title>Inspiration</title>
 </head>
 
-<body>
-    <main class="container">
-        <div id="app"></div>
+<body id="body">
+
+    <main class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-3 d-flex align-items-end">
+                <p class="text-light shadow" id="imagecredit">test text creds!</p>
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <div class="row" id="dont_touch_me!">
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="text-light shadow" id="clock">Clock</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="text-light shadow" id="quote">Quote</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 d-flex flex-column justify-content-around">
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="text-light shadow" id="weather">Weather</span>
+                    </div>
+                </div>
+                <div class="row" id="dont_touch_me2!"></div>
+                <div class="row" id="dont_touch_me3!"></div>
+                <div class="row" id="dont_touch_me4!"></div>
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="bg-dark">
+                            <div class="bg-light">
+                                <div class="col-12 text-center"> <b>List</b></div>
+                                <small class="text-muted"> 4/4 </small>
+                            </div>
+                            <div class="row" id="listItems">
+                                <!-- insert line items here -->
+                            </div>
+                            <!-- submit new line item form -->
+                            <div class="col-12 py-3">
+                                <form onsubmit="app.listController.addListItem()">
+                                    <input required name="rawListItem" minlength="3" maxlength="15" type="text"
+                                        class="text-muted" placeholder="Add Task..." class="border-bottom"></input>
+                                    <button type="submit"><i class="mdi mdi-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app/main.js" type="module"></script>
+
 </body>
 
 </html>

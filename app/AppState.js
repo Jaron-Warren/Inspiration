@@ -2,9 +2,11 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  /**@type image */
-  image = "../assets/img/winxp.jpg"
+  image = null
   quote = 'you\'re a cool person!'
+
+  /** @type {listItem[]} */
+  listItems = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
