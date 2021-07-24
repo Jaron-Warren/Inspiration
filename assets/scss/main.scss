@@ -17,7 +17,22 @@ main {
   flex-grow: 1;
 }
 
-.text-light.shadow {
-  text-shadow: 1px 1px 15px black;
+.shadow {
+  text-shadow: 1px 1px 12px rgb(0, 0, 0);
 }
 
+.clock {
+  font-size: 8rem;
+}
+
+.quote {
+  &:hover{
+    .author {
+      opacity: 1;
+    }
+  }
+  .author {
+    opacity: 0;
+    transition: all .3s linear
+  }
+}

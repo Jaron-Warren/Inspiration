@@ -2,13 +2,13 @@ import { ProxyState } from "../AppState.js";
 import { weatherService } from "../Services/WeatherService.js"
 
 //Private
+let degreefahrenheit = true
+
 function _drawWeather() {
-  let fahrenheitnum = (ProxyState.weather.main.temp - 273.15) * 1.8 + 32
-  let fahrenheit = fahrenheitnum.toFixed(1)
   document.getElementById("weather").innerHTML = `
   <div>${ProxyState.weather.weather[0].main}</div>
   <div>${ProxyState.weather.name}</div>
-  <div>${fahrenheit}</div>
+  <div onclick="app.weatherController.convertDegrees()" id="degrees">${((ProxyState.weather.main.temp - 273.15) * 1.8 + 32).toFixed(1)} &deg;F</div>
   `
 }
 
@@ -29,4 +29,13 @@ export default class WeatherController {
     }
   }
 
+  convertDegrees() {
+    if (degreefahrenheit) {
+      degreefahrenheit = false
+      document.getElementById("degrees").innerText = `${(ProxyState.weather.main.temp - 273.15).toFixed(1)} °C`
+    } else {
+      degreefahrenheit = true
+      document.getElementById("degrees").innerText = `${((ProxyState.weather.main.temp - 273.15) * 1.8 + 32).toFixed(1)} °F`
+    }
+  }
 }
