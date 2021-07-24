@@ -3,8 +3,8 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   image = null
-  quote = 'you\'re a cool person!'
-
+  quote = { content: 'you\'re a cool person!' }
+  weather = null
   /** @type {listItem[]} */
   listItems = []
 }
