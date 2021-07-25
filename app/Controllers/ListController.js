@@ -4,14 +4,23 @@ import { listService } from "../Services/ListService.js";
 
 function _draw() {
   let template = ''
-  document.getElementById('lists').innerHTML = template
+  ProxyState.listItems.forEach(i => template += i.Template)
+  document.getElementById('listItems').innerHTML = template
 }
 export default class ListController {
   constructor() {
-    // ProxyState.on('listItems', _draw)
+    ProxyState.on('listItems', _draw)
     // ProxyState.on('listItems', saveState)
 
-    // loadState()
+    this.getListItems()
+  }
+
+  async getListItems() {
+    try {
+      await listService.getListItems()
+    } catch (error) {
+      console.log(' unable to retrieve your list items ' + error)
+    }
   }
 
   addListItem() {
@@ -23,14 +32,12 @@ export default class ListController {
     listService.addListItem(listItem)
     form.reset()
   }
-
   removeListItem(id) {
     listService.removeListItem(id)
   }
   checkedListItem(id) {
     listService.checkedListItem(id)
-    _draw()
+    // _draw()
   }
-
 }
 

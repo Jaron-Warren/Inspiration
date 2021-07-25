@@ -3,7 +3,7 @@ import { imageService } from "../Services/ImageService.js"
 
 //Private
 function _drawBackground() {
-  document.getElementById("body").style.backgroundImage = `url(${ProxyState.image.imgUrl})`
+  document.getElementById("body").style.backgroundImage = `url(${ProxyState.image.largeImgUrl})`
   // console.log(ProxyState.image.url)
   document.getElementById("imagecredit").innerText = `credit: ${ProxyState.image.author}`
   // console.log(ProxyState.image)

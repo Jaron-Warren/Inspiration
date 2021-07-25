@@ -5,7 +5,6 @@ class AppState extends EventEmitter {
   image = null
   quote = { content: 'you\'re a cool person!' }
   weather = null
-  /** @type {listItem[]} */
   listItems = []
 }
 
